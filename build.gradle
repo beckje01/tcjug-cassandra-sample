@@ -1,0 +1,36 @@
+buildscript {
+	repositories {
+		maven {
+			mavenCentral()
+			url "http://repo.spring.io/libs-snapshot"
+		}
+	}
+
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.1.RELEASE")
+		classpath "net.saliman:gradle-cobertura-plugin:2.2.0"
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+	// Use 'maven central' for resolving your dependencies.
+	// You can declare any Maven/Ivy/file repository here.
+	mavenCentral()
+}
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+	// The production code uses the SLF4J logging API at compile time
+	compile 'org.slf4j:slf4j-api:1.7.5'
+	compile 'com.datastax.cassandra:cassandra-driver-core:2.0.1'
+	compile("org.springframework.boot:spring-boot-starter-web:1.0.1.RELEASE")
+	compile 'org.codehaus.groovy:groovy-all:2.2.0'
+
+}
